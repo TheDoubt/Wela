@@ -99,7 +99,8 @@ const {
   Suggestions,
   List,
   Image,
-  BasicCard
+  BasicCard,
+  SignIn
 } = require('actions-on-google')
 
 const app = dialogflow({
@@ -133,7 +134,7 @@ app.intent('Wela_1Anythingelse', confirmOrder)
 app.intent('Wela_1Time', askMenu)
 app.intent('Wela_1Confirm', listOrder)
 
-function conversataionWithParams(conv, params) {
+function conversataionWithParams (conv, params) {
   console.log(params)
   conv.ask(`Do you confirm to order ${params['number-integer']} ${params['menu']}?`)
 }
@@ -145,8 +146,9 @@ function conversataionWithParamsYes(conv, params) {
 
 function welcome(conv) {
   conv.ask('Start order your food?')
-  conv.ask(new Suggestions(['I\'m hungry']))
-
+  // conv.ask(new Suggestions(['I\'m hungry']))
+  conv.ask(`Before using this app, authentication is needed. Please perform a Sign-in`)
+  conv.ask(new SignIn("To personalise, "))
   // Save to user storage
   conv.user.storage.count = 1
   // Save to conversation storage
