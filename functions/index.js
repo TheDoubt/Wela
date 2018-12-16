@@ -97,6 +97,7 @@ const {
   Suggestions,
   List,
   Image,
+  SignIn
 } = require('actions-on-google')
 
 const app = dialogflow({
@@ -138,15 +139,16 @@ function conversataionWithParamsYes (conv, params) {
 
 function welcome (conv) {
   conv.ask('Start order your food?')
-  conv.ask(new Suggestions(['I\'m hungry']))
-
+  // conv.ask(new Suggestions(['I\'m hungry']))
+  conv.ask(`Before using this app, authentication is needed. Please perform a Sign-in`)
+  conv.ask(new SignIn("To personalise, "))
   // Save to user storage
   conv.user.storage.count = 1
   // Save to conversation storage
   conv.data.count = 1
 }
 
-function cancel (conv,param) {
+function cancel (conv, param) {
   conv.ask('This is cancel')
 }
 
