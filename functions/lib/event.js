@@ -1,3 +1,4 @@
+const {Suggestions } = require('actions-on-google')
 exports.confirmPermission = (conv, _, confirmationGranted) => {
   let confirm = confirmationGranted ? "Granted" : "Denied";
   conv.ask(conv.user.name.display + " was " + confirm);

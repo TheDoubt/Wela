@@ -1,34 +1,43 @@
-[debug] [2018-12-15T13:22:44.291Z] ----------------------------------------------------------------------
-[debug] [2018-12-15T13:22:44.293Z] Command:       /Users/3rath/.nvm/versions/node/v8.11.3/bin/node /usr/local/bin/firebase serve --only functions
-[debug] [2018-12-15T13:22:44.293Z] CLI Version:   3.19.3
-[debug] [2018-12-15T13:22:44.293Z] Platform:      darwin
-[debug] [2018-12-15T13:22:44.293Z] Node Version:  v8.11.3
-[debug] [2018-12-15T13:22:44.295Z] Time:          Sat Dec 15 2018 20:22:44 GMT+0700 (+07)
-[debug] [2018-12-15T13:22:44.295Z] ----------------------------------------------------------------------
+[debug] [2018-12-16T07:25:17.526Z] ----------------------------------------------------------------------
+[debug] [2018-12-16T07:25:17.528Z] Command:       /Users/3rath/.nvm/versions/node/v8.11.3/bin/node /usr/local/bin/firebase serve --only functions
+[debug] [2018-12-16T07:25:17.529Z] CLI Version:   3.19.3
+[debug] [2018-12-16T07:25:17.529Z] Platform:      darwin
+[debug] [2018-12-16T07:25:17.529Z] Node Version:  v8.11.3
+[debug] [2018-12-16T07:25:17.529Z] Time:          Sun Dec 16 2018 14:25:17 GMT+0700 (+07)
+[debug] [2018-12-16T07:25:17.529Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2018-12-15T13:22:44.315Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-12-15T13:22:44.315Z] > authorizing via signed-in user
-[debug] [2018-12-15T13:22:44.320Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/wela-ef490  
+[debug] [2018-12-16T07:25:17.549Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-16T07:25:17.549Z] > authorizing via signed-in user
+[debug] [2018-12-16T07:25:17.551Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-12-16T07:25:17.551Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/AkyBlhWASW0m63olfxUdNOy6_gSXlKjvlP1fXW8OsJI',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun Dec 16 2018 14:25:17 GMT+0700 (+07)
+[debug] [2018-12-16T07:25:17.753Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-16T07:25:17.769Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/wela-ef490  
   
- Sat Dec 15 2018 20:22:44 GMT+0700 (+07)
-[debug] [2018-12-15T13:22:45.526Z] <<< HTTP RESPONSE 200
-[debug] [2018-12-15T13:22:45.527Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/wela-ef490/tokens  
+ Sun Dec 16 2018 14:25:17 GMT+0700 (+07)
+[debug] [2018-12-16T07:25:18.975Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-16T07:25:18.975Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/wela-ef490/tokens  
   
- Sat Dec 15 2018 20:22:45 GMT+0700 (+07)
-[debug] [2018-12-15T13:22:46.387Z] <<< HTTP RESPONSE 200
-[debug] [2018-12-15T13:22:46.389Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/wela-ef490  
+ Sun Dec 16 2018 14:25:18 GMT+0700 (+07)
+[debug] [2018-12-16T07:25:19.943Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-16T07:25:19.944Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/wela-ef490  
   
- Sat Dec 15 2018 20:22:46 GMT+0700 (+07)
-[debug] [2018-12-15T13:22:47.855Z] <<< HTTP RESPONSE 200
+ Sun Dec 16 2018 14:25:19 GMT+0700 (+07)
+[debug] [2018-12-16T07:25:21.431Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/3rath/Me/hackathon'...
 [info] 
 [info] i  functions: Preparing to emulate functions.
-[debug] [2018-12-15T13:22:49.409Z] Fetching environment
-[debug] [2018-12-15T13:22:49.411Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/931940110170:getServerAppConfig  
+[debug] [2018-12-16T07:25:22.902Z] Fetching environment
+[debug] [2018-12-16T07:25:22.905Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/931940110170:getServerAppConfig  
   
- Sat Dec 15 2018 20:22:49 GMT+0700 (+07)
-[debug] [2018-12-15T13:22:49.803Z] <<< HTTP RESPONSE 200
-[debug] [2018-12-15T13:22:49.804Z] Starting @google-cloud/functions-emulator
-[debug] [2018-12-15T13:22:51.370Z] Parsing function triggers
+ Sun Dec 16 2018 14:25:22 GMT+0700 (+07)
+[debug] [2018-12-16T07:25:23.377Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-16T07:25:23.378Z] Starting @google-cloud/functions-emulator
+[debug] [2018-12-16T07:25:25.451Z] Parsing function triggers
 [info] ✔  functions: dialogflowFirebaseFulfillment: http://localhost:5000/wela-ef490/us-central1/dialogflowFirebaseFulfillment

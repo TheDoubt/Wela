@@ -16,69 +16,84 @@ admin.initializeApp(functions.config().firebase)
 const MOCK_SERVICES = {
   line: {
     name: 'Lineman',
-    restaurant: ['pizzacompany', 'mcdonald', 'zaabone']
+    restaurant: ['pizzacompany', 'mcdonald']
   },
   grab: {
     name: 'Grab',
-    restaurant: ['mcdonald', 'pratunam']
+    restaurant: ['mcdonald', 'pizzacompany']
   }
 }
 const MOCK_RESTAURANT = {
   pizzacompany: {
     name: 'Pizza Company',
     image: {
-      url: 'https://www.w3schools.com/html/pic_trulli.jpg',
+      url: 'https://www.bluporthuahin.com/bluport/wp-content/uploads/2017/07/G05-THE-PIZZA-COMPANY-02.jpg',
       alt: 'Pizza Company'
     },
     menus: {
-      pizza: {
-        name: 'Pizza',
-        price: 200
+      hamBacon: {
+        name: 'Ham & Bacon',
+        price: 250,
+        img: {
+          url: 'https://1112.com/images/products/pizza/mobile/Pan_Ham-%26-Bacon.png',
+          alt: 'pizza'
+        }
+      },
+      hawaiian: {
+        name: 'Hawaiian',
+        price: 250,
+        img: {
+          url: 'https://1112.com/images/products/pizza/mobile/Pan_Hawaiian.png',
+          alt: 'pizza'
+        }
+      },
+      seafoodDeluxe: {
+        name: 'Seafood Deluxe',
+        price: 250,
+        img: {
+          url: 'https://1112.com/images/products/pizza/mobile/Pan_Seafood-Deluxe.png',
+          alt: 'pizza'
+        }
       },
       friedChicken: {
         name: 'Fried Chicken',
-        price: 80
+        price: 50,
+        img: {
+          url: 'http://www.cbc.ca/inthekitchen/assets_c/2012/10/ButtermilkFriedChix16-thumb-596x350-234379.jpg',
+          alt: 'fried'
+        }
       }
     }
   },
   mcdonald: {
     image: {
-      url: 'https://www.w3schools.com/html/pic_trulli.jpg',
-      alt: 'Pizza Company'
+      url: 'https://www.rd.com/wp-content/uploads/2018/01/01_macdonalds_countries-that-have-banned-mcdonald-s_678182368-editorial-ty-lim-1200x1200.jpg',
+      alt: 'Mc Donald',
     },
-    name: 'mc',
+    name: 'Mc Donald',
     menus: {
       hamburger: {
         name: 'Hamburger',
-        price: 100
+        price: 100,
+        img: {
+          url: 'http://www.smeleader.com/wp-content/uploads/2014/02/%E0%B9%81%E0%B8%9F%E0%B8%A3%E0%B8%99%E0%B9%84%E0%B8%8A%E0%B8%AA%E0%B9%8C-%E0%B9%81%E0%B8%AE%E0%B8%A1%E0%B9%80%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%80%E0%B8%81%E0%B8%AD%E0%B8%A3%E0%B9%8C-25-%E0%B8%9A%E0%B8%B2%E0%B8%97-%E0%B8%8A%E0%B8%B4%E0%B9%89%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%E0%B8%AD%E0%B8%B4%E0%B9%88%E0%B8%A1-%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%A2%E0%B8%B1%E0%B8%87-%E0%B9%80%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%80%E0%B8%81%E0%B8%AD%E0%B8%A3%E0%B9%8C.jpg',
+          alt: 'Hamburger'
+        }
       },
       friedChicken: {
         name: 'Fried Chicken',
-        price: 50
-      }
-    }
-  },
-  pratunam: {
-    image: {
-      url: 'https://www.w3schools.com/html/pic_trulli.jpg',
-      alt: 'Pizza Company'
-    },
-    name: 'Pratunam',
-    menus: {
-      friedRice: {
-        name: 'Fried Rice',
-        price: 45
-      },
-      noodles: {
-        name: 'Noodles',
-        price: 40
+        price: 50,
+        img: {
+          url: 'https://www.seriouseats.com/images/2012/08/20120821-219555-mcdonalds-mighty-wings-primary.jpg',
+          alt: 'friedChicken'
+        }
       }
     }
   },
   zaabone: {
     image: {
       url: 'https://www.w3schools.com/html/pic_trulli.jpg',
-      alt: 'Pizza Company'
+      alt: 'Zaabone'
     },
     name: 'Zaab one',
     menus: {
@@ -90,6 +105,49 @@ const MOCK_RESTAURANT = {
         name: 'Fried Rice',
         price: 45
       }
+    }
+  }
+}
+
+const MOCK_MENUS = {
+  hamBacon: {
+    name: 'Ham & Bacon',
+    price: 250,
+    img: {
+      url: 'https://1112.com/images/products/pizza/mobile/Pan_Ham-%26-Bacon.png',
+      alt: 'pizza'
+    }
+  },
+  hawaiian: {
+    name: 'Hawaiian',
+    price: 250,
+    img: {
+      url: 'https://1112.com/images/products/pizza/mobile/Pan_Hawaiian.png',
+      alt: 'pizza'
+    }
+  },
+  seafoodDeluxe: {
+    name: 'Seafood Deluxe',
+    price: 250,
+    img: {
+      url: 'https://1112.com/images/products/pizza/mobile/Pan_Seafood-Deluxe.png',
+      alt: 'pizza'
+    }
+  },
+  hamburger: {
+    name: "Hamburger",
+    price: 100,
+    img: {
+      url: 'http://www.smeleader.com/wp-content/uploads/2014/02/%E0%B9%81%E0%B8%9F%E0%B8%A3%E0%B8%99%E0%B9%84%E0%B8%8A%E0%B8%AA%E0%B9%8C-%E0%B9%81%E0%B8%AE%E0%B8%A1%E0%B9%80%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%80%E0%B8%81%E0%B8%AD%E0%B8%A3%E0%B9%8C-25-%E0%B8%9A%E0%B8%B2%E0%B8%97-%E0%B8%8A%E0%B8%B4%E0%B9%89%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%E0%B8%AD%E0%B8%B4%E0%B9%88%E0%B8%A1-%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%A2%E0%B8%B1%E0%B8%87-%E0%B9%80%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%80%E0%B8%81%E0%B8%AD%E0%B8%A3%E0%B9%8C.jpg',
+      alt: 'Hamburger'
+    }
+  },
+  friedChicken: {
+    name: 'Fried Chicken',
+    price: 50,
+    img: {
+      url: 'http://www.cbc.ca/inthekitchen/assets_c/2012/10/ButtermilkFriedChix16-thumb-596x350-234379.jpg',
+      alt: 'friedChicken'
     }
   }
 }
@@ -129,10 +187,15 @@ app.intent('finish_update_setup', dailyUpdate.finish)
 app.intent('Wela_1Start', askService)
 app.intent('Wela_1Foodservice', askStore)
 app.intent('Wela_1Restaurant', askTime)
+app.intent('Wela_1Restaurant_click', askTimeClick)
 app.intent('Wela_1Menu', orderFood)
+app.intent('menu_click', orderFoodClick)
+app.intent('join_order', orderFood)
 app.intent('Wela_1Anythingelse', confirmOrder)
+app.intent('join_anythings_else', confirmOtherOrder)
 app.intent('Wela_1Time', askMenu)
-app.intent('Wela_1Confirm', listOrder)
+app.intent('Wela_1Place', listOrder)
+app.intent('Wela_1Confirm', confirm)
 
 function conversataionWithParams (conv, params) {
   console.log(params)
@@ -146,13 +209,14 @@ function conversataionWithParamsYes(conv, params) {
 
 function welcome(conv) {
   conv.ask('Start order your food?')
-  // conv.ask(new Suggestions(['I\'m hungry']))
+
   conv.ask(`Before using this app, authentication is needed. Please perform a Sign-in`)
   conv.ask(new SignIn("To personalise, "))
   // Save to user storage
   conv.user.storage.count = 1
   // Save to conversation storage
   conv.data.count = 1
+  conv.ask(new Suggestions(['I\'m hungry']))
 }
 
 function cancel(conv, param) {
@@ -171,7 +235,7 @@ function askStore(conv, param) {
   const restaurants = MOCK_SERVICES[service].restaurant
   conv.ask(`You choose ${service}. Which restaurant do you want to order`)
   conv.ask(new List({
-    title: 'List Title',
+    title: 'Restaurant List',
     items: restaurants.reduce((acc, restaurant) => ({
       // Add the first item to the list
       ...acc,
@@ -192,7 +256,14 @@ function askTime(conv, param) {
   const restaurantData = MOCK_RESTAURANT[restaurant]
   conv.ask(`Confirm ${restaurantData.name}. When do you want to order?`)
   conv.ask(new Suggestions(['10am', '11am', '1pm']))
+}
 
+function askTimeClick(conv, param, option) {
+  const restaurant = option
+  conv.data.restaurant = restaurant
+  const restaurantData = MOCK_RESTAURANT[restaurant]
+  conv.ask(`Confirm ${restaurantData.name}. When do you want to order?`)
+  conv.ask(new Suggestions(['10am', '11am', '1pm']))
 }
 
 function askMenu(conv, param) {
@@ -202,48 +273,74 @@ function askMenu(conv, param) {
   const restaurantData = MOCK_RESTAURANT[restaurant]
   const menus = restaurantData.menus
   conv.ask('Confirm, I will order it for you at ' + new Date(conv.data.time).toLocaleString('en-US', { hour: 'numeric', hour12: true }) + ' So, what do you want to eat?')
-  conv.ask(new Suggestions(Object.values(menus).map((menu) => ('1 ' + menu.name))))
-  // TODO: show menu list
-}
-
-function orderSummary(conv, params) {
-  conv.ask('Order Summary')
-  conv.ask(new List({
-    title: conv.data.restaurant,
-    items: {
-      'hamburger': {
+  const menuList = new List({ title: 'Menu', items: Object.keys(menus).reduce((acc, menuKey) => ({
+      // Add the first item to the list
+      ...acc,
+      [menuKey]: {
         synonyms: [],
-        title: 'hamburger',
-        description: 'x1 - ฿200',
-        image: new Image({
-          url: 'http://www.smeleader.com/wp-content/uploads/2014/02/%E0%B9%81%E0%B8%9F%E0%B8%A3%E0%B8%99%E0%B9%84%E0%B8%8A%E0%B8%AA%E0%B9%8C-%E0%B9%81%E0%B8%AE%E0%B8%A1%E0%B9%80%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%80%E0%B8%81%E0%B8%AD%E0%B8%A3%E0%B9%8C-25-%E0%B8%9A%E0%B8%B2%E0%B8%97-%E0%B8%8A%E0%B8%B4%E0%B9%89%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%E0%B8%AD%E0%B8%B4%E0%B9%88%E0%B8%A1-%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%A2%E0%B8%B1%E0%B8%87-%E0%B9%80%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%80%E0%B8%81%E0%B8%AD%E0%B8%A3%E0%B9%8C.jpg',
-          alt: 'Hamburger'
-        })
-      },
-      'summary': {
-        synonyms: [],
-        title: 'Total Price',
-        description: '฿200'
+        title: menus[menuKey].name,
+        description: `price: ${menus[menuKey].price}`,
+        image: new Image(menus[menuKey].img)
       }
-    }
-  }))
+  }), {}) })
+  conv.ask(menuList)
+  // conv.ask(new Suggestions(Object.values(menus).map((menu) => ('1 ' + menu.name))))
+  // TODO: show menu list
 }
 
 function orderFood(conv, params) {
   const { menu, number } = params
   conv.data.menu = menu
   conv.data.qty = number
-  conv.ask(`Do you confirm to order ${params.number} ${params.menu}, OK, anything else?`)
+  conv.ask(`Order ${params.number} ${MOCK_MENUS[params.menu].name}, OK, anything else?`)
   conv.ask(new Suggestions(['No']))
 }
 
-function confirmOrder(conv) {
+function orderFoodClick(conv, param, option) {
+  conv.data.menu = option
+  conv.data.qty = 1
+  conv.ask(`Order 1 ${MOCK_MENUS[option].name}, anything else?`)
+  conv.ask(new Suggestions(['No']))
+}
+
+async function confirmOrder(conv) {
   const { menu, qty } = conv.data
-  // const { user = 'user1' } = conv console.log(conv.user)
-  const user = 'user1'
-  admin.database().ref('items/order1/').set({ [menu]: qty })
+  const snapshot = await admin.database().ref('items').child('order1').once('value')
+  admin.database().ref('items/order1/').set({ ...snapshot.val(), [menu]: qty })
   conv.ask('OK, where do you want to pick your food up?')
   conv.ask(new Suggestions(['AIS DC', 'Home', 'Work']))
+}
+
+async function confirmOtherOrder(conv) {
+  const { menu, qty } = conv.data
+  const snapshot = await admin.database().ref('items').child('order1').once('value')
+  admin.database().ref('items/order1/').set({ ...snapshot.val(), [menu]: qty })
+  conv.close('wait a moment...')
+  const newSnapshot = await admin.database().ref('items').child('order1').once('value')
+  const orders = newSnapshot.val()
+
+  let total = 0
+  const items = Object.keys(orders).reduce((acc, menu) => {
+    total += MOCK_MENUS[menu].price*orders[menu]
+    return ({
+      ...acc,
+      [menu]: {
+        synonyms: [],
+        title: menu,
+        description: `${MOCK_MENUS[menu].price} x${orders[menu]}`,
+        image: new Image(MOCK_MENUS[menu].img)
+      }
+    })
+  }, {})
+  items.summary = {
+    synonyms: [],
+    title: 'Total Price',
+    description: `฿${total}`
+  }
+  conv.close(new List({
+    title: 'Order Summary',
+    items
+  }))
 }
 
 async function listOrder(conv, params) {
@@ -252,30 +349,34 @@ async function listOrder(conv, params) {
   const snapshot = await orderRef.child('order1').once('value')
   const orders = snapshot.val()
 
-  const price = {
-    hamburger: 100,
-  }
-  const items = Object.keys(orders).reduce((acc, menu) => ({
-    ...acc,
-    [menu]: {
-      synonyms: [],
-      title: menu,
-      description: `x${orders[menu]} - ฿${price[menu]*orders[menu]}`,
-      image: new Image({
-        url: 'http://www.smeleader.com/wp-content/uploads/2014/02/%E0%B9%81%E0%B8%9F%E0%B8%A3%E0%B8%99%E0%B9%84%E0%B8%8A%E0%B8%AA%E0%B9%8C-%E0%B9%81%E0%B8%AE%E0%B8%A1%E0%B9%80%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%80%E0%B8%81%E0%B8%AD%E0%B8%A3%E0%B9%8C-25-%E0%B8%9A%E0%B8%B2%E0%B8%97-%E0%B8%8A%E0%B8%B4%E0%B9%89%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%E0%B8%AD%E0%B8%B4%E0%B9%88%E0%B8%A1-%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%A2%E0%B8%B1%E0%B8%87-%E0%B9%80%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%80%E0%B8%81%E0%B8%AD%E0%B8%A3%E0%B9%8C.jpg',
-        alt: 'Hamburger'
-      })
-    }
-  }), {})
+  let total = 0
+  const items = Object.keys(orders).reduce((acc, menu) => {
+    total += MOCK_MENUS[menu].price*orders[menu]
+    return ({
+      ...acc,
+      [menu]: {
+        synonyms: [],
+        title: MOCK_MENUS[menu].name,
+        description: `฿${MOCK_MENUS[menu].price} x ${orders[menu]}`,
+        image: new Image(MOCK_MENUS[menu].img)
+      }
+    })
+  }, {})
   items.summary = {
     synonyms: [],
     title: 'Total Price',
-    description: '฿200'
+    description: `฿${total}`
   }
-  conv.close(new List({
-    title: 'Order',
+  conv.ask(`OK. Total amount for your order is ${total} baht. Please confirm your order.`)
+  conv.ask(new List({
+    title: 'Order Summary',
     items
   }))
+}
+
+function confirm (conv) {
+  admin.database().ref('items').child('order1').set({})
+  conv.close('Thank you')
 }
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app)
